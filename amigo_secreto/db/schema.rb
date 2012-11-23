@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121215620) do
+ActiveRecord::Schema.define(:version => 20121122000753) do
+
+  create_table "comentarios", :force => true do |t|
+    t.text     "body"
+    t.integer  "usuario_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comentarios", ["usuario_id"], :name => "index_comentarios_on_usuario_id"
 
   create_table "usuarios", :force => true do |t|
     t.string   "apelido"

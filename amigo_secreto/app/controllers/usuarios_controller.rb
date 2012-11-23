@@ -14,7 +14,6 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1.json
   def show
     @usuario = Usuario.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @usuario }
@@ -44,7 +43,7 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
-        format.html { redirect_to @usuario, notice: 'Usuario was successfully created.' }
+        format.html { redirect_to :action => "index" }
         format.json { render json: @usuario, status: :created, location: @usuario }
       else
         format.html { render action: "new" }

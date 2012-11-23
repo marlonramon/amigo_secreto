@@ -1,5 +1,37 @@
 <p id="notice"><%= notice %></p>
+<div class="container well">
+	<div class="control-group">
+		<label class="control-label"><b> <%= @usuario.apelido %>: </b></label>
+		<p><%= @usuario.sugestao %></p>
+	</div>	
+</div>
+
+<% if @usuario.comentarios.any? %>
+	<div class="container"><h4>Comentarios</h4></div>
+  	<%= render @usuario.comentarios %>
+	
+<% end %>
+
+<div class="container">
+
+<%= form_for([@usuario, @usuario.comentarios.build]) do |f| %>
+ 
+ 
+ <fieldset>
+ 	<legend>Enviar comentário</legend>
+        <label>Comentário: </label>
+        <div class="controls">
+          <%= f.text_area :body, :cols => '500', :rows=> '4', :style=> 'width: 600px' %>
+        </div>
+
+   	<div class="form-actions">
+        <%= f.submit "Salvar" ,:class => "btn btn-primary" %>
+        <%= link_to 'Voltar', usuarios_path , :class => 'btn btn-primary', :style=> 'color:white' %>
+
+    </div>
+<% end %>
+</div>
 
 
-<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>
+<!-- 
+<%= link_to 'Edit', edit_usuario_path(@usuario) %>  -->
