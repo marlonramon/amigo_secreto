@@ -10,7 +10,6 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'jquery-rails'
 gem 'turbolinks'    
 gem 'jbuilder', '~> 1.0.1'
-gem 'protected_attributes'
 gem 'bootswatch-rails'
 
 
